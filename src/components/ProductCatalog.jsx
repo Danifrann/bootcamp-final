@@ -11,7 +11,7 @@ function ProductCatalog() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/product/readall');
+        const response = await fetch('https://proyecto-6-94j0.onrender.com/api/product/readall');
         if (!response.ok) {
           throw new Error('Error al obtener productos');
         }

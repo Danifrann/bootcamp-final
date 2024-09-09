@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/user/login', {
+      const response = await fetch('https://proyecto-6-94j0.onrender.com/api/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ function Login() {
       localStorage.setItem('token', loginData.token);
 
       // Verificar el token y obtener datos del usuario
-      const userResponse = await fetch('http://localhost:3000/api/user/verifytoken', {
+      const userResponse = await fetch('https://proyecto-6-94j0.onrender.com/api/user/verifytoken', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${loginData.token}`,
