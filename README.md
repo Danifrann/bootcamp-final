@@ -1,4 +1,4 @@
-# API de gestión de productos y usuarios con Node.js y MongoDB
+# Proyecto Final - Frontend + Backend
 
 ## Descripción
 
