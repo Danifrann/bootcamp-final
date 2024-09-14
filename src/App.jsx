@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import ProductCatalog from './components/ProductCatalog';
+import ProductManagement from './components/ProductManagement';  // Importa el nuevo componente
 import AuthContext from './context/AuthContext';
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
           <nav className="bg-pink-500 p-4">
             <div className="container mx-auto flex justify-between items-center">
               <div className="text-white font-bold text-xl">
-                <a href="/catalog" className="hover:text-pink-300">Catálogo</a>
+                {/* Usa Link en lugar de <a> */}
+                <Link to="/catalog" className="hover:text-pink-300">Catálogo</Link>
+                <Link to="/product-management" className="hover:text-pink-300 ml-4">Gestión de Productos</Link> {}
               </div>
               <div>
                 <button onClick={logout} className="text-white hover:text-pink-300">Cerrar Sesión</button>
@@ -34,12 +37,11 @@ function App() {
         )}
 
         <Routes>
-          {/* Si el usuario está autenticado, redirigir al catálogo, de lo contrario, mostrar el login */}
+          {}
           <Route path="/" element={!user ? <Login /> : <Navigate to="/catalog" />} />
-          {/* Ruta de registro */}
           <Route path="/register" element={<Register />} />
-          {/* Ruta del catálogo */}
           <Route path="/catalog" element={user ? <ProductCatalog /> : <Navigate to="/" />} />
+          <Route path="/product-management" element={user ? <ProductManagement /> : <Navigate to="/" />} /> {}
         </Routes>
       </div>
     </Router>
